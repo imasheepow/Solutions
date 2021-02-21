@@ -47,8 +47,7 @@ int main() {
         }
     }
     for (int i = 2; i <= N; i++) {
-        mul[i] += c[i];
-        int cur = par[i];
+        int cur = i;
         while (cur != 1) {
             mul[cur] += c[i];
             cur = par[cur];

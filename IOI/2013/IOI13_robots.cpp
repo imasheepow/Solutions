@@ -1,3 +1,4 @@
+#include "robots.h"
 #include <bits/stdc++.h>
 #define all(x) begin(x), end(x)
 #define sz(x) int((x).size())

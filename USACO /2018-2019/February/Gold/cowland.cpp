@@ -8,6 +8,12 @@ using ll = long long;
 using pii = pair<int, int>;
 using vi = vector<int>;
 const int MN = 1e5 + 5, LN = 17;
+
+void setIO(string name) {
+    freopen((name + ".in").c_str(), "r", stdin);
+    freopen((name + ".out").c_str(), "w", stdout);
+}
+
 int N, Q, a[MN], dep[MN], up[MN][LN], tin[MN], tout[MN], tt;
 vi g[MN];
 
@@ -16,6 +22,7 @@ void et(int u, int p = -1) {
     up[u][0] = p;
     for (int j = 1; j < LN; j++)
         if (~up[u][j - 1]) up[u][j] = up[up[u][j - 1]][j - 1];
+        else break;
     for (int v : g[u]) if (v != p) {
         dep[v] = dep[u] + 1;
         et(v, u);
@@ -43,11 +50,6 @@ int get(int i) {
     int r = 0;
     for (; i; i -= i & -i) r ^= b[i];
     return r;
-}
-
-void setIO(string name) {
-    freopen((name + ".in").c_str(), "r", stdin);
-    freopen((name + ".out").c_str(), "w", stdout);
 }
 
 int main() {
